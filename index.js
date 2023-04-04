@@ -2,7 +2,7 @@ const express = require('express');
 const expressEjsLayouts = require('express-ejs-layouts');
 const app = express();
 const port = 8000;
-
+const db = require('./config/mongoose');
 app.use(express.static('./assets'));
 app.use(expressEjsLayouts);
 //extract style and script form sub pages into the layout
