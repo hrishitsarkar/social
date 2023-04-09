@@ -1,3 +1,28 @@
 <header>
-    <h3>Header</h3>
+
+    <!-- <ul>
+        <% if (locals.user) { %>
+             <li><a href="/users/profile"><%= user.name %></a></li>
+             <li><a href="/users/sign-out">Sign Out</a></li>
+            <% } else { %>
+             <li> <a href="/users/sign-in">Sign In</a> </li>
+              <li><a href="/users/sign-up">Sign Up</a></li>
+
+                <% } %>
+    </ul> -->
+<div class="nav">
+    <div class="logo"><a href="/"><h1 id="logo-heading">Codeial</h1></a></div>
+    <div class="links">
+        <ul>
+            <% if (locals.user) { %>
+                <li ><a style="color: red; font-weight: bolder;" href="/users/profile"><%= user.name %></a></li>
+                <li><a href="/users/sign-out">Sign Out</a></li>
+               <% } else { %>
+                <li> <a href="/users/sign-in">Sign In</a> </li>
+                 <li><a href="/users/sign-up">Sign Up</a></li>
+   
+                   <% } %>
+        </ul>
+    </div>
+</div>
 </header>

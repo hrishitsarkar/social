@@ -14,6 +14,7 @@ router.post('/create-session',passport.authenticate(
     'local',
     {failureRedirect: '/users/sign-in'}
 ),usersConrtoller.createSession)
+router.get('/sign-out',usersConrtoller.destroySession);
 
 // router.post('/create',usersConrtoller.create);
 // router.post('/create-session',usersConrtoller.createSession);

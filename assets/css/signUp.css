@@ -1,0 +1,28 @@
+#main-signUp {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center; }
+  #main-signUp div h1 {
+    font-family: sans-serif;
+    font-size: 4rem;
+    color: red; }
+  #main-signUp form #input-tags {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    #main-signUp form #input-tags input {
+      height: 50px;
+      width: 50vw;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-size: 2rem; }
+    #main-signUp form #input-tags ::placeholder {
+      font-size: 1.5rem;
+      font-family: sans-serif; }
+    #main-signUp form #input-tags #sign-up-button {
+      background-color: #1877f2;
+      font-size: 2rem;
+      border: none;
+      color: white; }

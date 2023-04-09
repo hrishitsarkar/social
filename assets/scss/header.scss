@@ -1,0 +1,39 @@
+header{
+
+    .nav{
+        height: 100px;
+        width: 100%;
+        background-color: #1877f2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+            .logo{
+                width: 10%;
+                color: white;
+                text-align: center;
+                    #logo-heading{
+                        font-family: sans-serif;
+                    }
+                    a{
+                        text-decoration: none;
+                        color: white;
+                    }
+                }
+            .links{
+                ul{
+                    li{
+                        display: inline-block;
+                        margin: 0px 5px;
+                        font-size: 2rem;
+                        list-style: none;
+                        a{
+                            text-decoration: none;
+                            color: white;
+                            font: 1em sans-serif;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+    }
+}

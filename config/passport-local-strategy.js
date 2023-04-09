@@ -41,16 +41,32 @@ passport.serializeUser(function(user,done){
 
 //deserializing the user from the key in cookies
 
-passport.deserializeUser(function(id,done){
-    User.findById(id).then(function(err,user){
-        return done(null,true);
-    }).catch((err)=>{
+// passport.deserializeUser(function(id,done){
+//     User.findById(id).then(function(err,user){
+//         return done(null,true);
+//     }).catch((err)=>{
         
-            console.log(`error in finding user ---> passport : ${err}`);
-            return done(err);
+//             console.log(`error in finding user ---> passport : ${err}`);
+//             return done(err);
         
-    })
-});
+//     })
+// });
+passport.deserializeUser(async function(id,done){
+        //  User.findById(id).then(function(err,user){
+        //     if(err){
+        //         console.log(err);
+        //         }         
+        //     return done(null,true);     
+        // })  
+        try{             
+            let user= await User.findById(id);    
+             console.log("user",user);     
+             return done(null,user);     
+            }     
+            catch{         
+                console.log('error is ', err);
+                 }         
+    });
 //check if user is authenticated
 
 passport.checkAuthentication = function (req,res,next){
