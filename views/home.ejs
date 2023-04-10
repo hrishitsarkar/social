@@ -1,5 +1,29 @@
 <link rel="stylesheet" href="">
 
-   <div id="main-home"> <h1 id="home-heading">Welcome to Codeial !</h1> </div>
+   <div id="main-home">
+       <h1 id="home-heading">Welcome to Codeial !</h1> 
+       <% if (locals.user) { %>
+       <h1 id="post-head">Post Something</h1>
+       <form action="/posts/create" id="new-post-form" method="post">
+       <textarea name="content" id="text-area" cols="20" rows="5" placeholder="Whats on your mind ?"></textarea>
+       <div id="btn-div"><input type="submit" id="post-button" value="POST"></div>
+       </form>
+       <% } %>
+       <div class="post-lists">
+         <ul>
+            <% for(post of posts) { %>
+               <li>
+               <%= post.content %>
+               <p>Posted by : <%= post.user.name %></p>
+               </li>
+               
+               <% } %>
+         </ul>
+       </div>
+         
+         
+   
+   </div>
+
 
     

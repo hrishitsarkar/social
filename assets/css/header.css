@@ -1,7 +1,7 @@
 header .nav {
   height: 100px;
   width: 100%;
-  background-color: #1877f2;
+  background-image: linear-gradient(to right, #8e6bff, #facd5f);
   display: flex;
   justify-content: space-between;
   align-items: center; }
