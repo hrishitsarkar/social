@@ -8,7 +8,7 @@
             align-items: center;
             #home-heading{
                 font-family: sans-serif;
-                font-size: 5.5rem;
+                font-size: 4.5rem;
             }
             #post-head{
                 font-family: sans-serif;
@@ -46,12 +46,70 @@
                     li{
                         font-size: 2rem;
                         list-style: none;
+                        margin: 10px 0px;
                         
                         p{
                             font-size: 1rem;
                             font-family: sans-serif;
                             
                         }
+                    }
+                    #comment-container{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        form{
+                            #comment-txt{
+                                border-radius: 50px;
+                                border: 1px solid orange;
+                                font-size: 1.2rem;
+                                padding: 10px;
+                                margin: 10px 0px;
+                                display: block;
+                            }
+                            #comment-btn{
+                                font-size: 1.2rem;
+                                text-align: center;
+                                background-image: linear-gradient(to right, #f98b64 , #f72479);
+                                color: white;
+                                border: none;
+                            }
+                        }
+                    }
+                    #comments-head{
+                        text-align: left;
+                        font-family: sans-serif;
+                        
+                    }
+                    .post-comments-list{
+                        overflow-y: scroll;
+                        overflow-x: hidden;
+                        height: 200px;
+                        
+                        ul{
+                            h3{
+                                text-align: left;
+                                color: navy;
+                                font-family: sans-serif;
+                                text-decoration: underline;
+                                cursor: pointer;
+                            }
+                            li{
+                                
+                                background-color: lightgray;
+                                
+                                p{
+                                    text-align: left;
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                    ::placeholder{
+                        font-size: 1.2rem;
+                        font-family: sans-serif;
+                        margin-left: 12px;
                     }
 
                 }

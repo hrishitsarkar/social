@@ -6,7 +6,7 @@ body #main-home {
   align-items: center; }
   body #main-home #home-heading {
     font-family: sans-serif;
-    font-size: 5.5rem; }
+    font-size: 4.5rem; }
   body #main-home #post-head {
     font-family: sans-serif; }
   body #main-home #text-area {
@@ -35,7 +35,46 @@ body #main-home {
     text-align: center; }
     body #main-home .post-lists ul li {
       font-size: 2rem;
-      list-style: none; }
+      list-style: none;
+      margin: 10px 0px; }
       body #main-home .post-lists ul li p {
         font-size: 1rem;
         font-family: sans-serif; }
+    body #main-home .post-lists ul #comment-container {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      body #main-home .post-lists ul #comment-container form #comment-txt {
+        border-radius: 50px;
+        border: 1px solid orange;
+        font-size: 1.2rem;
+        padding: 10px;
+        margin: 10px 0px;
+        display: block; }
+      body #main-home .post-lists ul #comment-container form #comment-btn {
+        font-size: 1.2rem;
+        text-align: center;
+        background-image: linear-gradient(to right, #f98b64, #f72479);
+        color: white;
+        border: none; }
+    body #main-home .post-lists ul #comments-head {
+      text-align: left;
+      font-family: sans-serif; }
+    body #main-home .post-lists ul .post-comments-list {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 200px; }
+      body #main-home .post-lists ul .post-comments-list ul h3 {
+        text-align: left;
+        color: navy;
+        font-family: sans-serif;
+        text-decoration: underline;
+        cursor: pointer; }
+      body #main-home .post-lists ul .post-comments-list ul li {
+        background-color: lightgray; }
+        body #main-home .post-lists ul .post-comments-list ul li p {
+          text-align: left; }
+    body #main-home .post-lists ul ::placeholder {
+      font-size: 1.2rem;
+      font-family: sans-serif;
+      margin-left: 12px; }
