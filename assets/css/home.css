@@ -40,6 +40,12 @@ body #main-home {
       body #main-home .post-lists ul li p {
         font-size: 1rem;
         font-family: sans-serif; }
+    body #main-home .post-lists ul a #delete-btn {
+      font-size: 1.2rem;
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer; }
     body #main-home .post-lists ul #comment-container {
       display: flex;
       align-items: center;
