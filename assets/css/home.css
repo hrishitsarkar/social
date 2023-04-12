@@ -80,6 +80,8 @@ body #main-home {
         background-color: lightgray; }
         body #main-home .post-lists ul .post-comments-list ul li p {
           text-align: left; }
+          body #main-home .post-lists ul .post-comments-list ul li p a {
+            text-decoration: none; }
     body #main-home .post-lists ul ::placeholder {
       font-size: 1.2rem;
       font-family: sans-serif;

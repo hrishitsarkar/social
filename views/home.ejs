@@ -37,7 +37,9 @@
                            <li>
                               
                               <p><%= comment.content %></p>
-
+                              <% if (locals.user && comment.user.id == locals.user.id ) { %>
+                                 <p><a href="/comments/destroy<%= comment.id %>">Delete</a></p>
+                                 <% } %>
                            </li>
                         <% } %>
                         
