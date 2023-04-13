@@ -1,88 +1,104 @@
-body #main-home {
+body #home-container {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  align-items: center; }
-  body #main-home #home-heading {
-    font-family: sans-serif;
-    font-size: 4.5rem; }
-  body #main-home #post-head {
-    font-family: sans-serif; }
-  body #main-home #text-area {
-    font-size: 2rem;
-    width: 80vw; }
-  body #main-home #btn-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0px; }
-    body #main-home #btn-div #post-button {
+  width: 100%; }
+  body #home-container #feed-container {
+    width: 70%;
+    padding: 10px; }
+    body #home-container #feed-container #home-heading {
       text-align: center;
-      font-size: 2rem;
-      background-image: linear-gradient(to right, #f98b64, #f72479);
-      color: white;
       font-family: sans-serif;
-      border: none;
-      cursor: pointer;
-      align-items: center; }
-  body #main-home ::placeholder {
-    font-size: 2rem; }
-  body #main-home .post-lists {
-    width: 95%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    text-align: center; }
-    body #main-home .post-lists ul li {
+      font-size: 4.5rem; }
+    body #home-container #feed-container #post-head {
+      text-align: center;
+      font-family: sans-serif; }
+    body #home-container #feed-container form #text-area {
       font-size: 2rem;
-      list-style: none;
-      margin: 10px 0px; }
-      body #main-home .post-lists ul li p {
-        font-size: 1rem;
-        font-family: sans-serif; }
-    body #main-home .post-lists ul a #delete-btn {
-      font-size: 1.2rem;
-      background-color: red;
-      color: white;
-      border: none;
-      cursor: pointer; }
-    body #main-home .post-lists ul #comment-container {
+      width: 80%;
+      margin: 0px 100px; }
+    body #home-container #feed-container form #btn-div {
+      display: flex;
+      width: 85%;
+      justify-content: right; }
+      body #home-container #feed-container form #btn-div #post-button {
+        text-align: center;
+        font-size: 2rem;
+        background-image: linear-gradient(to right, #f98b64, #f72479);
+        color: white;
+        font-family: sans-serif;
+        border: none;
+        cursor: pointer;
+        align-items: center; }
+    body #home-container #feed-container #feed-head {
+      font-family: sans-serif; }
+    body #home-container #feed-container ::placeholder {
+      font-size: 2rem; }
+    body #home-container #feed-container .post-lists {
+      width: 80%; }
+      body #home-container #feed-container .post-lists ul li {
+        font-size: 2rem;
+        list-style: none;
+        margin: 10px 0px; }
+        body #home-container #feed-container .post-lists ul li h6 {
+          font-family: sans-serif;
+          text-align: left; }
+          body #home-container #feed-container .post-lists ul li h6 span {
+            color: #f72479; }
+        body #home-container #feed-container .post-lists ul li #delete {
+          text-align: right; }
+          body #home-container #feed-container .post-lists ul li #delete a #delete-btn {
+            font-size: 1.2rem;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer; }
+    body #home-container #feed-container #comment-container {
       display: flex;
       align-items: center;
       justify-content: center; }
-      body #main-home .post-lists ul #comment-container form #comment-txt {
-        border-radius: 50px;
+      body #home-container #feed-container #comment-container form #comment-txt {
         border: 1px solid orange;
         font-size: 1.2rem;
-        padding: 10px;
+        padding: 5px;
         margin: 10px 0px;
         display: block; }
-      body #main-home .post-lists ul #comment-container form #comment-btn {
+      body #home-container #feed-container #comment-container form #comment-btn {
         font-size: 1.2rem;
-        text-align: center;
+        text-align: right;
         background-image: linear-gradient(to right, #f98b64, #f72479);
         color: white;
         border: none; }
-    body #main-home .post-lists ul #comments-head {
+    body #home-container #feed-container #comments-head {
       text-align: left;
       font-family: sans-serif; }
-    body #main-home .post-lists ul .post-comments-list {
-      overflow-y: scroll;
-      overflow-x: hidden;
-      height: 200px; }
-      body #main-home .post-lists ul .post-comments-list ul h3 {
+    body #home-container #feed-container .post-comments-list ul h3 {
+      text-align: left;
+      color: navy;
+      font-family: sans-serif;
+      text-decoration: underline;
+      cursor: pointer; }
+    body #home-container #feed-container .post-comments-list ul li {
+      background-color: lightgray;
+      padding: 10px; }
+      body #home-container #feed-container .post-comments-list ul li p {
         text-align: left;
-        color: navy;
-        font-family: sans-serif;
-        text-decoration: underline;
-        cursor: pointer; }
-      body #main-home .post-lists ul .post-comments-list ul li {
-        background-color: lightgray; }
-        body #main-home .post-lists ul .post-comments-list ul li p {
-          text-align: left; }
-          body #main-home .post-lists ul .post-comments-list ul li p a {
-            text-decoration: none; }
-    body #main-home .post-lists ul ::placeholder {
+        font-size: 1.3rem; }
+        body #home-container #feed-container .post-comments-list ul li p a {
+          text-decoration: none;
+          font-size: 1.2rem; }
+    body #home-container #feed-container ::placeholder {
       font-size: 1.2rem;
       font-family: sans-serif;
       margin-left: 12px; }
+  body #home-container #friends-sec {
+    width: 30%;
+    padding: 10px; }
+    body #home-container #friends-sec h1 {
+      font-family: sans-serif;
+      color: blueviolet; }
+    body #home-container #friends-sec ul li {
+      list-style: none;
+      margin: 50px 0px; }
+      body #home-container #friends-sec ul li a {
+        font-size: 2rem;
+        text-decoration: none;
+        font-family: sans-serif; }

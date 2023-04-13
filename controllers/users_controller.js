@@ -1,8 +1,8 @@
 const User = require('../models/user');
 module.exports.profile = async function(req, res){
-    let users = await User.find({})         
+    let users = await User.findById(req.params.id);         
     return res.render('user_profile',{               
-        allUsers:users,        
+        profile_user:users,        
         title:'User'       
     });
 }
@@ -56,5 +56,15 @@ module.exports.destroySession = function(req,res,next){
         if(err) return next(err);
         return res.redirect('/');
     });
+    
+}
+module.exports.update = async function(req,res){
+    if(req.user.id == req.params.id){
+        let updatedUsers = await User.findByIdAndUpdate(req.params.id,req.body);
+        return res.redirect('back');
+    }else{
+        return res.status(401).send('Unauthorized');
+    }
+
     
 }

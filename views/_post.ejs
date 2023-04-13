@@ -1,0 +1,26 @@
+<% if (locals.user) { %>
+    <h1 id="post-head">Post Something</h1>
+    <form action="/posts/create" id="new-post-form" method="post">
+    <textarea name="content" id="text-area" cols="20" rows="5" placeholder="Whats on your mind ?" required></textarea>
+    <div id="btn-div"><input type="submit" id="post-button" value="POST"></div>
+    </form>
+    <% } %>
+    <h1 id="feed-head">Your Feed</h1>
+    <div class="post-lists">
+      <ul>
+         <% for(post of posts) { %>
+        <li>
+            <h6><span><%= post.user.name %></span> posted this ,</h6>
+
+            <%= post.content %>
+            <% if (locals.user && post.user.id == locals.user.id ) { %>
+            <div id="delete">
+                <a href="/posts/destroy/<%= post.id %>"><button id="delete-btn">Delete Post</button></a>
+            </div>
+        <% } %>
+        </li>
+        <%- include('_comment') -%>
+        <% } %>
+        </ul>
+    </div>
+        

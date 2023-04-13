@@ -1,134 +1,171 @@
 
      body{
-        #main-home{
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
+        #home-container{
+        display: flex;
+        width: 100%;
+        #feed-container{
+            width: 70%;
+            padding: 10px;
             #home-heading{
+                text-align: center;
                 font-family: sans-serif;
                 font-size: 4.5rem;
             }
             #post-head{
+                text-align: center;
                 font-family: sans-serif;
             }
-            #text-area{
-                font-size: 2rem;
-                width: 80vw;
-            }
-            #btn-div{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 10px 0px;
-                #post-button{
-                    text-align: center;
+            form{
+                #text-area{
                     font-size: 2rem;
-                    background-image: linear-gradient(to right, #f98b64 , #f72479);
-                    color: white;
-                    font-family: sans-serif;
-                    border: none;
-                    cursor: pointer;
-                    align-items: center;
+                    width: 80%;
+                    margin: 0px 100px;
                 }
+                #btn-div{
+                    display: flex;
+                    width: 85%;
+                    justify-content: right;
+                    #post-button{
+                                    text-align: center;
+                                    font-size: 2rem;
+                                    background-image: linear-gradient(to right, #f98b64 , #f72479);
+                                    color: white;
+                                    font-family: sans-serif;
+                                    border: none;
+                                    cursor: pointer;
+                                    align-items: center;
+                                }
+                        }
+            }
+            #feed-head{
+                font-family: sans-serif;
             }
             ::placeholder{
                 font-size: 2rem;
             }
+
             .post-lists{
-                width: 95%;
-                overflow-x: hidden;
-                overflow-y: scroll;
-                text-align: center;
+                width: 80%;
                 
                 ul{
-                    li{
-                        font-size: 2rem;
-                        list-style: none;
-                        margin: 10px 0px;
-                        
-                        p{
-                            font-size: 1rem;
-                            font-family: sans-serif;
-                            
-                        }
-                    }
-                    a{
-                        #delete-btn{
-                            font-size: 1.2rem;
-                            background-color: red;
-                            color: white;
-                            border: none;
-                            cursor: pointer;
-                        }
-                    }
-                    #comment-container{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        form{
-                            #comment-txt{
-                                border-radius: 50px;
-                                border: 1px solid orange;
-                                font-size: 1.2rem;
-                                padding: 10px;
-                                margin: 10px 0px;
-                                display: block;
-                            }
-                            #comment-btn{
-                                font-size: 1.2rem;
-                                text-align: center;
-                                background-image: linear-gradient(to right, #f98b64 , #f72479);
-                                color: white;
-                                border: none;
-                            }
-                        }
-                    }
-                    #comments-head{
-                        text-align: left;
-                        font-family: sans-serif;
-                        
-                    }
-                    .post-comments-list{
-                        overflow-y: scroll;
-                        overflow-x: hidden;
-                        height: 200px;
-                        
-                        ul{
-                            h3{
-                                text-align: left;
-                                color: navy;
-                                font-family: sans-serif;
-                                text-decoration: underline;
-                                cursor: pointer;
-                            }
                             li{
-                                
-                                background-color: lightgray;
-                                
-                                p{
-                                    text-align: left;
-                                    a{
-                                        text-decoration: none;
+                                font-size: 2rem;
+                                list-style: none;
+                                margin: 10px 0px;
+                                h6{
+                                    span{
+                                        color: #f72479;
                                     }
+                                    font-family: sans-serif;
+                                    
+                                    text-align: left;
+                                    
                                 }
                                 
-                            }
+                                #delete{
+                                    
+                                    text-align: right;
+                                    
                             
+                                    a{
+                                        #delete-btn{
+                                            font-size: 1.2rem;
+                                            background-color: red;
+                                            color: white;
+                                            border: none;
+                                            cursor: pointer;
+                                            
+                                        }
+                                    }
+                                }
                         }
                     }
-                    ::placeholder{
-                        font-size: 1.2rem;
-                        font-family: sans-serif;
-                        margin-left: 12px;
-                    }
-
                 }
-                
+                #comment-container{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                    form{
+                        #comment-txt{
+                            border: 1px solid orange;
+                            font-size: 1.2rem;
+                            padding: 5px;
+                            margin: 10px 0px;
+                            display: block;
+                                    }
+                        #comment-btn{
+                            font-size: 1.2rem;
+                            text-align: right;
+                            background-image: linear-gradient(to right, #f98b64 , #f72479);
+                            color: white;
+                            border: none;
+                                    }
+                        }
+                            }
+            #comments-head{
+                text-align: left;
+                font-family: sans-serif;
+                                
+                          }
+            .post-comments-list{
+                                
+                ul{
+                    h3{
+                        text-align: left;
+                        color: navy;
+                        font-family: sans-serif;
+                        text-decoration: underline;
+                        cursor: pointer;
+                        }
+                    li{
+                                        
+                        background-color: lightgray;
+                        padding: 10px;
+                        p{
+                            text-align: left;
+                            font-size: 1.3rem;
+                            a{
+                                text-decoration: none;
+                                font-size: 1.2rem;
+                            }
+                        }
+                                        
+                        }
+                                    
+                }
+                                }
+                ::placeholder{
+                                font-size: 1.2rem;
+                                font-family: sans-serif;
+                                margin-left: 12px;
+                            }
+        
+                        }
+        #friends-sec{
+            width: 30%;
+            padding: 10px;
+            h1{
+                font-family: sans-serif;
+                color: blueviolet;
+            }
+            ul{
+                li{
+                    list-style: none;
+                    margin: 50px 0px;
+                    a{
+                        font-size: 2rem;
+                        text-decoration: none;
+                        font-family: sans-serif;
+                        
+                    }
+                }
             }
         }
+                        
+                    }
+            }
+        
        
-     }
+     
 
     

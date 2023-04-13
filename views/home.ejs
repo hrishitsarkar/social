@@ -1,58 +1,27 @@
-<link rel="stylesheet" href="">
-
-   <div id="main-home">
-       <h1 id="home-heading">Welcome to Codeial !</h1> 
-       <% if (locals.user) { %>
-       <h1 id="post-head">Post Something</h1>
-       <form action="/posts/create" id="new-post-form" method="post">
-       <textarea name="content" id="text-area" cols="20" rows="5" placeholder="Whats on your mind ?" required></textarea>
-       <div id="btn-div"><input type="submit" id="post-button" value="POST"></div>
-       </form>
-       <% } %>
-       <div class="post-lists">
-         <ul>
-            <% for(post of posts) { %>
-               <li>
-               <%= post.content %>
-               <p>Posted by : <%= post.user.name %></p>
-               <% if (locals.user && post.user.id == locals.user.id ) { %>
-               <a href="/posts/destroy/<%= post.id %>"><button id="delete-btn">Delete Post</button></a>
-               <% } %>
-               </li>
-               <% if (locals.user) { %>
-                  <div id="comment-container">
-                  <form action="/comments/create" method="post">
-                     <textarea name="content" id="comment-txt" cols="60" rows="2" placeholder="Write a comment" required></textarea>
-                     <input type="hidden" name="post" value="<%=post._id %>">
-                     <input type="submit" id="comment-btn" value="Post Comment">
-                  </form>
-               </div>
-                  <% } %>
-                  <h1 id="comments-head">Comments</h1>
-               <div class="post-comments-list">
-                     
-                     <ul id="post-comments-<%= post._id %>">
-                        <% for(comment of post.comments) { %> 
-                           <h3><%= comment.user.name %></h3>
-                           <li>
-                              
-                              <p><%= comment.content %></p>
-                              <% if (locals.user && comment.user.id == locals.user.id ) { %>
-                                 <p><a href="/comments/destroy<%= comment.id %>">Delete</a></p>
-                                 <% } %>
-                           </li>
-                        <% } %>
-                        
-                     </ul>
-               </div>
-               
-            <% } %>
-         </ul>
-       </div>
+<link rel="stylesheet" href="/css/home.css">
+<div id="home-container">
+   
+   <section id="feed-container">
+      <h1 id="home-heading">Welcome to Codeial !</h1>
+               <%- include('_post') -%>
+   </section>
+   
+   <section id="friends-sec">
+      <h1>Friends</h1>
+      <ul>
+         
+      <% for(u of all_users) { %>
+         <li>
+         <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+         </li>
+         <% } %>
+      </ul>
+   </section>
          
          
    
    </div>
+
 
 
     
