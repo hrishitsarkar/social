@@ -36,13 +36,15 @@
                                     align-items: center;
                                 }
                         }
+                        ::placeholder{
+                            font-size: 2rem;
+                        }
             }
+            
             #feed-head{
                 font-family: sans-serif;
             }
-            ::placeholder{
-                font-size: 2rem;
-            }
+            
 
             .post-lists{
                 width: 80%;
@@ -100,6 +102,11 @@
                             color: white;
                             border: none;
                                     }
+                        ::placeholder{
+                                        font-size: 1.2rem;
+                                        font-family: sans-serif;
+                                        margin-left: 12px;
+                        }
                         }
                             }
             #comments-head{
@@ -134,11 +141,7 @@
                                     
                 }
                                 }
-                ::placeholder{
-                                font-size: 1.2rem;
-                                font-family: sans-serif;
-                                margin-left: 12px;
-                            }
+                
         
                         }
         #friends-sec{

@@ -28,10 +28,10 @@ body #home-container {
         border: none;
         cursor: pointer;
         align-items: center; }
+    body #home-container #feed-container form ::placeholder {
+      font-size: 2rem; }
     body #home-container #feed-container #feed-head {
       font-family: sans-serif; }
-    body #home-container #feed-container ::placeholder {
-      font-size: 2rem; }
     body #home-container #feed-container .post-lists {
       width: 80%; }
       body #home-container #feed-container .post-lists ul li {
@@ -67,6 +67,10 @@ body #home-container {
         background-image: linear-gradient(to right, #f98b64, #f72479);
         color: white;
         border: none; }
+      body #home-container #feed-container #comment-container form ::placeholder {
+        font-size: 1.2rem;
+        font-family: sans-serif;
+        margin-left: 12px; }
     body #home-container #feed-container #comments-head {
       text-align: left;
       font-family: sans-serif; }
@@ -85,10 +89,6 @@ body #home-container {
         body #home-container #feed-container .post-comments-list ul li p a {
           text-decoration: none;
           font-size: 1.2rem; }
-    body #home-container #feed-container ::placeholder {
-      font-size: 1.2rem;
-      font-family: sans-serif;
-      margin-left: 12px; }
   body #home-container #friends-sec {
     width: 30%;
     padding: 10px; }
