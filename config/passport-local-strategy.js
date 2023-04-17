@@ -3,7 +3,7 @@ const passport = require('passport');
 
 //requiring passport local strategy
 
-const LocalStrategy = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 //requiring user
 
 const User = require('../models/user');
@@ -19,8 +19,8 @@ function(req,email,password,done){
      User.findOne({email : email}).then(function(user){
         
         if(!user || user.password != password){
-            // console.log(`Invalid username / password`);
-            req.flash('error','Invalid Username/Password');
+            console.log(`Invalid username / password`);
+            req.flash("error","Invalid Username/Password");
             return done(null,false);
         }
 

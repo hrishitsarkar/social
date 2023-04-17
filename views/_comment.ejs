@@ -1,17 +1,4 @@
-<% if (locals.user) { %>
-   <div id="comment-container">
-      <form action="/comments/create" method="post">
-       <textarea name="content" id="comment-txt" cols="60" rows="2" placeholder="Write a comment" required></textarea>
-       <input type="hidden" name="post" value="<%=post._id %>">
-       <input type="submit" id="comment-btn" value="Post Comment">
-      </form>
-   </div>
-<% } %>
-    <h1 id="comments-head">Comments</h1>
-   <div class="post-comments-list">
-       
-       <ul id="post-comments-<%= post._id %>">
-          <% for(comment of post.comments) { %> 
+ 
              <h3><%= comment.user.name %></h3>
              <li>
                 
@@ -20,9 +7,8 @@
                    <p><a href="/comments/destroy<%= comment.id %>">Delete</a></p>
                    <% } %>
              </li>
-          <% } %>
           
-       </ul>
- </div>
+          
+       
  
 

@@ -11,6 +11,8 @@ module.exports.home = async function(req, res){
 try{
 //find all the posts
 let posts = await Post.find({})
+//to sort by created time
+.sort('-createdAt')
 //populate user of post schema
 .populate('user')
 //populate comments of post Schema and then populate user inside comment schema

@@ -3,7 +3,21 @@
    
    <section id="feed-container">
       <h1 id="home-heading">Welcome to Codeial !</h1>
+      <% if (locals.user) { %>
+         <h1 id="post-head">Post Something</h1>
+         <form action="/posts/create" id="new-post-form" method="post">
+         <textarea name="content" id="text-area" cols="20" rows="5" placeholder="Whats on your mind ?" required></textarea>
+         <div id="btn-div"><input type="submit" id="post-button" value="POST"></div>
+         </form>
+         <% } %>
+         <h1 id="feed-head">Your Feed</h1>
+         <div class="post-lists">
+            <ul>
+               <% for(post of posts) { %>
                <%- include('_post') -%>
+               <% } %>
+            </ul>
+         </div>
    </section>
    
    <section id="friends-sec">
@@ -21,6 +35,7 @@
          
    
    </div>
+   <script src="/js/home_posts.js"></script>
 
 
 
