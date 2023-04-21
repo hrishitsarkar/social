@@ -30,6 +30,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded({extended : false}));
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'assets')));
+//make the upload path available to the browser
+app.use('/uploads',express.static(__dirname + '/uploads'))
 app.use(expressEjsLayouts);
 //extract style and script form sub pages into the layout
 app.set('layout extractStyles',true);

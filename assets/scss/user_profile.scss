@@ -1,21 +1,62 @@
-.profile{
+.profile {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    div{
+    justify-content: center;
+    width: 99.5%;
+
+    #update-form {
+        width: 100%;
+
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            align-items: center;
+
+            .input-type-forms {
+                height: 50px;
+                width: 100%;
+                margin: 20px 0px;
+                font-size: 1.5rem;
+            }
+
+            #file-type {
+                font-size: 1.5rem;
+                text-align: left;
+            }
+
+            #update-btn {
+                background-color: #04439f;
+                color: white;
+                font-family: sans-serif;
+                width: 20%;
+                text-align: center;
+            }
+        }
+    }
+
+    #dp {
         margin-top: 50px;
-        img{
+
+        img {
             border-radius: 50%;
             height: 200px;
             width: 200px;
             border: 10px solid red;
         }
-        
+
     }
-    #details-list{
-        ul{
-            li{
+
+    #details-list {
+        ul {
+            li {
                 font-size: 2rem;
                 list-style: none;
                 font-family: sans-serif;

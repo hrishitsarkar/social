@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const User = require('../models/user');
 
 const Comment = require('../models/comment');
 const mongoose = require('mongoose');
@@ -9,11 +10,13 @@ module.exports.create = async function(req,res){
             content : req.body.content,
             user : req.user._id
         });
+        posts.user = await User.findById(req.user._id);
         if(req.xhr){
             //if req is xhr then return json with status 200
             return res.status(200).json({
                 data : {
-                    post : posts,
+                    post : posts
+                
                 },
                 message : "post created"
 
@@ -23,7 +26,7 @@ module.exports.create = async function(req,res){
         return res.redirect('back');
     }
     catch(err){
-        console.log(`error in creating posts`);
+        console.log(`error in creating posts ${err}`);
     }
 }
 
@@ -32,6 +35,7 @@ module.exports.create = async function(req,res){
 module.exports.destroy = async function(req,res){
     console.log(mongoose.Types.ObjectId.isValid(req.params.id));
     console.log(req.params.id);
+    console.log(req);
     try{
         let post = await Post.findById(req.params.id);
     
@@ -40,17 +44,19 @@ module.exports.destroy = async function(req,res){
         // .id will automatically convert obj id into string
         if(post.user == req.user.id){
             try{
+                
                 post.deleteOne();
                 let comment = await Comment.deleteMany({post : req.params.id});
-
+                
                 if(req.xhr){
                     return res.status(200).json({
                         data :{
                             post_id : req.params.id
                         },
                         message : "post deleted"
-                    })
+                    });
                 }
+                
                 req.flash('success','Post Deleted Successfully with Comments');
                 return res.redirect('back');
             }

@@ -45,10 +45,10 @@ body #home-container {
           text-align: left; }
           body #home-container #feed-container .post-lists ul li h6 span {
             color: #f72479; }
-        body #home-container #feed-container .post-lists ul li #delete {
+        body #home-container #feed-container .post-lists ul li .delete {
           margin-right: 100px;
           text-align: right; }
-          body #home-container #feed-container .post-lists ul li #delete a #delete-btn {
+          body #home-container #feed-container .post-lists ul li .delete a #delete-btn {
             font-size: 1.2rem;
             background-color: red;
             color: white;

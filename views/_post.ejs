@@ -1,18 +1,19 @@
 
     
     
-        <li id="post-<%= post._id%>">
+        <li id="post-<%= post._id%>" class="post-li">
             <h6><span><%= post.user.name %></span> posted this ,</h6>
 
             <%= post.content %>
             <% if (locals.user && post.user.id == locals.user.id ) { %>
-            <div id="delete">
-                <a class="delete-post-button" href="/posts/destroy/<%= post.id %>"><button id="delete-btn">Delete Post</button></a>
+            <div id="delete-<%= post._id%>" class="delete">
+                
+                <a class="delete-post-button" href="/posts/destroy/<%= post._id %>"><button id="delete-btn">Delete Post</button></a>
             </div>
         <% } %>
         <% if (locals.user) { %>
             <div id="comment-container">
-               <form action="/comments/create" method="post">
+               <form action="/comments/create" id="post-<%= post._id %>-comments-form" class="new-cmnt-form" method="post">
                 <textarea name="content" id="comment-txt" cols="60" rows="2" placeholder="Write a comment" required></textarea>
                 <input type="hidden" name="post" value="<%=post._id %>">
                 <input type="submit" id="comment-btn" value="Post Comment">
@@ -24,6 +25,7 @@
                 
                 <ul id="post-comments-<%= post._id %>">
                    <% for(comment of post.comments) { %>
+                    
                     <%- include('_comment') -%>
                     <% } %>
         
