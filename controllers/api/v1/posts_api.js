@@ -29,7 +29,9 @@ module.exports.destroy = async function(req,res){
         let post = await Post.findById(req.params.id);
     
         //to check if the user and who created the post is same
+        if(post.user == req.user.id){
 
+        
         // .id will automatically convert obj id into string
         
             
@@ -43,6 +45,12 @@ module.exports.destroy = async function(req,res){
                 return res.status(200).json({
                     message : 'posts and associated comments deleted',
                 });
+            }
+            else{
+                return res.status(401).json({
+                    message : 'You can not delete this post'
+                })
+            }
             
             
         

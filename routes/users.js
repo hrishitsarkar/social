@@ -16,6 +16,10 @@ router.post('/create-session',passport.authenticate(
     {failureRedirect: '/users/sign-in'}
 ),usersConrtoller.createSession)
 router.get('/sign-out',usersConrtoller.destroySession);
+//this route is to call google when i click the button
+router.get('/auth/google',passport.authenticate('google',{scope : ['profile', 'email']})); //scope is the info we want to fetch
+//this route is for google sending back the data
+router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect: '/users/sign-in'}),usersConrtoller.createSession);
 
 // router.post('/create',usersConrtoller.create);
 // router.post('/create-session',usersConrtoller.createSession);
