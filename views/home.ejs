@@ -20,8 +20,22 @@
          </div>
    </section>
    
+      
+      
    <section id="friends-sec">
-      <h1>Friends</h1>
+      <% if (locals.user) { %>
+      <div id="friends">
+         <h1>Your Friends</h1>
+         <ul>
+            
+              
+            
+            
+         </ul>
+      </div>
+      <% } %>
+      <div id="users">
+      <h1>Users</h1>
       <ul>
          
       <% for(u of all_users) { %>
@@ -30,13 +44,32 @@
          </li>
          <% } %>
       </ul>
+   </div>
+   </section>
+   <section>
+      
+      <%- include('chat_box') -%>
    </section>
          
          
    
    </div>
-   <script src="/js/post_comments.js"></script>
-   <script src="/js/home_posts.js"></script>
+   <script src="<%= assetPath('js/post_comments.js') %>"></script>
+   <script src="<%= assetPath('js/home_posts.js') %>"></script>
+   <script src="<%= assetPath('js/toggle_likes.js') %>"></script>
+   <script>
+      $('.toggle-like-btn').each(function(){
+         let self = this;
+         let toggleLike = new ToggleLike(self)
+      });
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="<%= assetPath('js/chat_engine.js') %>"></script>
+   <% if(locals.user) { %>
+   <script>
+      new ChatEngine('chat-box','<%= locals.user.email %>');
+   </script>
+   <% } %>
    
 
 

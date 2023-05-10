@@ -15,11 +15,14 @@
                     let newPost = newPostDom(data.data.post);
                     $('.post-lists > ul').prepend(newPost);
 
-
+                   
                     console.log('link', $('.delete-post-button', newPost).prop('href'))
 
-                    deletePost($('.delete-post-button', newPost));
+                    deletePost($(' .delete-post-button', newPost));
+                    new PostComments(data.data.post._id);
                     console.log(data);
+
+                    new ToggleLike(' .toggle-like-btn', newPost);
                     new Noty({
                         theme: 'mint',
                         text: "Post Created",
@@ -52,16 +55,20 @@
 
         ${post.content}
         
+            <a class="toggle-like-btn" href="/likes/toggle?id=${post._id}&type=Post">0<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Facebook_Thumb_icon.svg/1200px-Facebook_Thumb_icon.svg.png" alt="likes"></a>
+            
+                
+        
         <div id="delete-${post._id}" class="delete">
-            <a class="delete-post-button" href="/posts/destroy/${post._id}"><button id="delete-btn">Delete Post</button></a>
+            <a class="delete-post-button" href="/posts/destroy/${post._id}" data-likes = "0"><button id="delete-btn">Delete Post</button></a>
         </div>
     
     
         <div id="comment-container">
            <form action="/comments/create" method="post">
             <textarea name="content" id="comment-txt" cols="60" rows="2" placeholder="Write a comment" required></textarea>
-            <input type="hidden" name="post" value=" ${post._id}">
-            <input type="submit" id="comment-btn" value="Post Comment">
+            <input type="hidden" name="post" value="${post._id}">
+            <button type="submit" id="comment-btn">Post Comment</button>
            </form>
         </div>
          <h1 id="comments-head">Comments</h1>
@@ -102,21 +109,24 @@
         })
     }
     let convertToAjax = function () {
-         $('#posts-list-container>ul>li').each(function () {
-            console.log(this)
+        $('#posts-list-container>ul>li').each(function () {
+
             let self = $(this);
-            console.log('self',self);
+
             let deleteButton = $(' .delete-post-button', self);
-            console.log('del', deleteButton);
+
             deletePost(deleteButton);
 
             let postId = self.prop('id').split('-')[1];
-            console.log('***',postId);
+
             new PostComments(postId);
 
 
+
+
+
         })
-        
+
 
     }
 

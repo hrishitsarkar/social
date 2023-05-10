@@ -1,8 +1,12 @@
 const express = require('express');
+const env = require('./config/environment');
+const logger = require('morgan');
 // const cookieParser = require('cookie-parser');
+
 const path = require('path');
 const expressEjsLayouts = require('express-ejs-layouts');
 const app = express();
+require('./config/view-helpers')(app);
 const port = 8000;
 const bodyParser = require('body-parser');
 const db = require('./config/mongoose');
@@ -20,18 +24,27 @@ const customMware = require('./config/middleware');
 //     app.use(express.session({ cookie: { maxAge: 60000 }}));
 //     app.use(flash());
 //   });
+//setup the chat server to be user with socket.io
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+chatServer.listen(5000);
+console.log("chat server is listening on port 5000");
+if(env.name == "development"){
+    app.use(sassMiddleware({
+        src : path.join(__dirname,env.asset_path,'scss'),
+        dest : path.join(__dirname,env.asset_path,'css'),
+        debug : true,
+        outputStyle : 'extended',
+        prefix : '/css'
+    }));
+}
 
-app.use(sassMiddleware({
-    src : './assets/scss',
-    dest : './assets/css',
-    debug : true,
-    outputStyle : 'extended',
-    prefix : '/css'
-}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded({extended : false}));
 // app.use(cookieParser());
-app.use(express.static(path.join(__dirname,'assets')));
+app.use(express.static(path.join(__dirname,env.asset_path)));
+
+app.use(logger(env.morgan.mode,env.morgan.options));
 //make the upload path available to the browser
 app.use('/uploads',express.static(__dirname + '/uploads'))
 app.use(expressEjsLayouts);
@@ -47,11 +60,11 @@ app.set('views', './views');
 app.use(session({
     name : 'codeial',
     //TODO change secret before deployment in production mode
-    secret:'blahsomething',
+    secret:env.session_cookie_key,
     saveUninitialized:false,
     resave:false,
     cookie:{
-        maxAge : (1000 * 60 * 100)
+        maxAge : (1000 * 600 * 100)
     },
     store: MongoStore.create({
         mongoUrl:'mongodb://127.0.0.1:27017/codeial_development',

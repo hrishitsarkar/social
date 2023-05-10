@@ -61,8 +61,7 @@ passport.deserializeUser(async function(id,done){
         //     return done(null,true);     
         // })  
         try{             
-            let user= await User.findById(id);    
-             console.log("user",user);     
+            let user= await User.findById(id);        
              return done(null,user);     
             }     
             catch{         

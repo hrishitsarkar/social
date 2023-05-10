@@ -1,0 +1,26 @@
+header .nav {
+  height: 100px;
+  width: 100%;
+  background-image: linear-gradient(to right, #8e6bff, #facd5f);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  header .nav .logo {
+    width: 10%;
+    color: white;
+    text-align: center; }
+    header .nav .logo #logo-heading {
+      font-family: sans-serif; }
+    header .nav .logo a {
+      text-decoration: none;
+      color: white; }
+  header .nav .links ul li {
+    display: inline-block;
+    margin: 0px 5px;
+    font-size: 2rem;
+    list-style: none; }
+    header .nav .links ul li a {
+      text-decoration: none;
+      color: white;
+      font: 1em sans-serif;
+      cursor: pointer; }

@@ -1,6 +1,6 @@
 const Post = require('../models/post');
 const User = require('../models/user');
-
+const Like = require('../models/like');
 const Comment = require('../models/comment');
 const mongoose = require('mongoose');
 
@@ -47,6 +47,11 @@ module.exports.destroy = async function(req,res){
                 
                 post.deleteOne();
                 let comment = await Comment.deleteMany({post : req.params.id});
+                //delete likes of the posts
+                let likePost = await Like.deleteMany({likeable : post},{onModel : 'Post'});
+                //delete likes of the comments of the post as well
+                let likeComment = await Like.deleteMany({_id : {$in : post.comments}});
+
                 
                 if(req.xhr){
                     return res.status(200).json({

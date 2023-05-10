@@ -21,6 +21,19 @@ router.get('/auth/google',passport.authenticate('google',{scope : ['profile', 'e
 //this route is for google sending back the data
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect: '/users/sign-in'}),usersConrtoller.createSession);
 
+
+router.get('/forget',usersConrtoller.forget);
+
+router.post('/reset',usersConrtoller.sendLink);
+
+router.get('/forget-password',usersConrtoller.verify);
+
+router.post('/forget-password',usersConrtoller.resetPassword);
+
+router.get('/:id/add',passport.checkAuthentication,usersConrtoller.addFriend);
+
+// router.get('/friends',passport.checkAuthentication,usersConrtoller.friends);
+
 // router.post('/create',usersConrtoller.create);
 // router.post('/create-session',usersConrtoller.createSession);
 

@@ -39,4 +39,19 @@
         }
 
     }
+    #google{
+        margin: 20px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img{
+            height: 60px;
+        }
+        a{
+            font-size: 1.5rem;
+            font-family: sans-serif;
+            margin: 0px 10px;
+            text-decoration: none;
+        }
+    }
 }
